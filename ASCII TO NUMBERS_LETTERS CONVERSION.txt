@@ -1,0 +1,19 @@
+def split_ascii_value(value):
+    high_byte = value >> 8
+    low_byte = value & 0xFF
+    return high_byte, low_byte
+
+def for_list(a):
+    result = ""
+    for i in a:
+        value = i
+        high_byte, low_byte = split_ascii_value(value)
+
+        if (65 <= low_byte <= 90 or 48 <= low_byte <= 57) and low_byte != 0:
+            result += chr(low_byte)
+            #return chr(low_byte)
+
+        if (65 <= high_byte <= 90 or 48 <= high_byte <= 57) and high_byte != 0:
+            result += chr(high_byte)
+            #return chr(high_byte)
+    return result
